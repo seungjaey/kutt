@@ -98,6 +98,9 @@ export const create: Handler = async (req: CreateLinkReq, res) => {
     user_id: req.user && req.user.id
   });
 
+  console.log("DEBUG : LINK HAS BEEN CREATED");
+  console.log(link);
+
   if (!req.user && env.NON_USER_COOLDOWN) {
     query.ip.add(req.realIP);
   }

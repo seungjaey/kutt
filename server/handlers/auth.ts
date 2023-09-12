@@ -22,6 +22,10 @@ const authenticate = (
     if (req.user) return next();
 
     passport.authenticate(type, (err, user) => {
+      console.log(`DEBUG : AUTH : ${type}`);
+      console.log(user);
+      console.log(err);
+
       if (err) return next(err);
 
       if (!user && isStrict) {
